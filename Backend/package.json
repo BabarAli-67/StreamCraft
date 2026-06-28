@@ -1,0 +1,19 @@
+{
+  "name": "StreamCraft-backend",
+  "version": "1.0.0",
+  "description": "Production-grade video streaming and content management backend",
+  "license": "ISC",
+  "author": "Babar Ali",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "jwt",
+    "video-streaming"
+  ]
+}
