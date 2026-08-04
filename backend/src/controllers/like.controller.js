@@ -6,23 +6,21 @@ import {asyncHandler} from "../utils/asyncHandler.js"
 
 const toggleVideoLike = asyncHandler(async (req, res) => {
     const {videoId} = req.params
-    //TODO: toggle like on video
+    // TODO: toggle like on video for the authenticated user
 })
 
 const toggleCommentLike = asyncHandler(async (req, res) => {
     const {commentId} = req.params
-    //TODO: toggle like on comment
-
+    // TODO: toggle like on comment for the authenticated user
 })
 
 const toggleTweetLike = asyncHandler(async (req, res) => {
     const {tweetId} = req.params
-    //TODO: toggle like on tweet
-}
-)
+    // TODO: toggle like on tweet for the authenticated user
+})
 
 const getLikedVideos = asyncHandler(async (req, res) => {
-    //TODO: get all liked videos
+    // TODO: return all videos liked by the authenticated user
 })
 
 export {

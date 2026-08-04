@@ -7,7 +7,7 @@ import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
 
 
-const generateAccessAndRefereshTokens = async(userId) =>{
+const generateAccessAndRefreshTokens = async(userId) =>{
     try {
         const user = await User.findById(userId)
         const accessToken = user.generateAccessToken()
@@ -18,26 +18,13 @@ const generateAccessAndRefereshTokens = async(userId) =>{
 
         return {accessToken, refreshToken}
 
-
     } catch (error) {
-        throw new ApiError(500, "Something went wrong while generating referesh and access token")
+        throw new ApiError(500, "Something went wrong while generating refresh and access token")
     }
 }
 
 const registerUser = asyncHandler( async (req, res) => {
-    // get user details from frontend
-    // validation - not empty
-    // check if user already exists: username, email
-    // check for images, check for avatar
-    // upload them to cloudinary, avatar
-    // create user object - create entry in db
-    // remove password and refresh token field from response
-    // check for user creation
-    // return res
-
-
     const {fullName, email, username, password } = req.body
-    //console.log("email: ", email);
 
     if (
         [fullName, email, username, password].some((field) => field?.trim() === "")
@@ -52,10 +39,8 @@ const registerUser = asyncHandler( async (req, res) => {
     if (existedUser) {
         throw new ApiError(409, "User with email or username already exists")
     }
-    //console.log(req.files);
 
     const avatarLocalPath = req.files?.avatar[0]?.path;
-    //const coverImageLocalPath = req.files?.coverImage[0]?.path;
 
     let coverImageLocalPath;
     if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
@@ -99,25 +84,11 @@ const registerUser = asyncHandler( async (req, res) => {
 } )
 
 const loginUser = asyncHandler(async (req, res) =>{
-    // req body -> data
-    // username or email
-    //find the user
-    //password check
-    //access and referesh token
-    //send cookie
-
     const {email, username, password} = req.body
-    console.log(email);
 
     if (!username && !email) {
         throw new ApiError(400, "username or email is required")
     }
-    
-    // Here is an alternative of above code based on logic discussed in video:
-    // if (!(username || email)) {
-    //     throw new ApiError(400, "username or email is required")
-        
-    // }
 
     const user = await User.findOne({
         $or: [{username}, {email}]
@@ -133,7 +104,7 @@ const loginUser = asyncHandler(async (req, res) =>{
     throw new ApiError(401, "Invalid user credentials")
     }
 
-   const {accessToken, refreshToken} = await generateAccessAndRefereshTokens(user._id)
+   const {accessToken, refreshToken} = await generateAccessAndRefreshTokens(user._id)
 
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
 
@@ -163,7 +134,7 @@ const logoutUser = asyncHandler(async(req, res) => {
         req.user._id,
         {
             $unset: {
-                refreshToken: 1 // this removes the field from document
+                refreshToken: 1 // Removes the refreshToken field from the document
             }
         },
         {
@@ -212,7 +183,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
             secure: true
         }
     
-        const {accessToken, newRefreshToken} = await generateAccessAndRefereshTokens(user._id)
+        const {accessToken, refreshToken: newRefreshToken} = await generateAccessAndRefreshTokens(user._id)
     
         return res
         .status(200)
@@ -293,7 +264,7 @@ const updateUserAvatar = asyncHandler(async(req, res) => {
         throw new ApiError(400, "Avatar file is missing")
     }
 
-    //TODO: delete old image - assignment
+    // TODO: delete previous avatar from Cloudinary after successful upload
 
     const avatar = await uploadOnCloudinary(avatarLocalPath)
 
@@ -326,8 +297,7 @@ const updateUserCoverImage = asyncHandler(async(req, res) => {
         throw new ApiError(400, "Cover image file is missing")
     }
 
-    //TODO: delete old image - assignment
-
+    // TODO: delete previous cover image from Cloudinary after successful upload
 
     const coverImage = await uploadOnCloudinary(coverImageLocalPath)
 

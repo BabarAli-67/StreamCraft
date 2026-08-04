@@ -8,17 +8,19 @@ import {asyncHandler} from "../utils/asyncHandler.js"
 
 const toggleSubscription = asyncHandler(async (req, res) => {
     const {channelId} = req.params
-    // TODO: toggle subscription
+    // TODO: subscribe or unsubscribe the authenticated user to channelId
 })
 
-// controller to return subscriber list of a channel
+// Returns the subscriber list for a channel
 const getUserChannelSubscribers = asyncHandler(async (req, res) => {
     const {channelId} = req.params
+    // TODO: return subscribers of channelId
 })
 
-// controller to return channel list to which user has subscribed
+// Returns channels the user is subscribed to
 const getSubscribedChannels = asyncHandler(async (req, res) => {
     const { subscriberId } = req.params
+    // TODO: return channels subscribed to by subscriberId
 })
 
 export {

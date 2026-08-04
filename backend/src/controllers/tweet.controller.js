@@ -6,19 +6,19 @@ import {ApiResponse} from "../utils/ApiResponse.js"
 import {asyncHandler} from "../utils/asyncHandler.js"
 
 const createTweet = asyncHandler(async (req, res) => {
-    //TODO: create tweet
+    // TODO: create tweet for the authenticated user
 })
 
 const getUserTweets = asyncHandler(async (req, res) => {
-    // TODO: get user tweets
+    // TODO: return tweets for a given user
 })
 
 const updateTweet = asyncHandler(async (req, res) => {
-    //TODO: update tweet
+    // TODO: update tweet content
 })
 
 const deleteTweet = asyncHandler(async (req, res) => {
-    //TODO: delete tweet
+    // TODO: delete tweet
 })
 
 export {

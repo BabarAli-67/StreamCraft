@@ -9,32 +9,32 @@ import {uploadOnCloudinary} from "../utils/cloudinary.js"
 
 const getAllVideos = asyncHandler(async (req, res) => {
     const { page = 1, limit = 10, query, sortBy, sortType, userId } = req.query
-    //TODO: get all videos based on query, sort, pagination
+    // TODO: implement query, sort, and pagination for video listing
 })
 
 const publishAVideo = asyncHandler(async (req, res) => {
     const { title, description} = req.body
-    // TODO: get video, upload to cloudinary, create video
+    // TODO: upload video to Cloudinary and create video document
 })
 
 const getVideoById = asyncHandler(async (req, res) => {
     const { videoId } = req.params
-    //TODO: get video by id
+    // TODO: fetch video by id
 })
 
 const updateVideo = asyncHandler(async (req, res) => {
     const { videoId } = req.params
-    //TODO: update video details like title, description, thumbnail
-
+    // TODO: update title, description, and/or thumbnail
 })
 
 const deleteVideo = asyncHandler(async (req, res) => {
     const { videoId } = req.params
-    //TODO: delete video
+    // TODO: delete video document and associated Cloudinary assets
 })
 
 const togglePublishStatus = asyncHandler(async (req, res) => {
     const { videoId } = req.params
+    // TODO: toggle isPublished flag
 })
 
 export {

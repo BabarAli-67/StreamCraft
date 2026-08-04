@@ -1,7 +1,7 @@
 {
-  "name": "chai-backend",
+  "name": "streamcraft-backend",
   "version": "1.0.0",
-  "description": "a backend at chai aur code channel - youtube",
+  "description": "StreamCraft backend API — video streaming platform",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,11 @@
   "keywords": [
     "javascript",
     "backend",
-    "chai"
+    "streamcraft",
+    "express",
+    "mongodb"
   ],
-  "author": "Hitesh Choudhary",
+  "author": "StreamCraft",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.0.1",
