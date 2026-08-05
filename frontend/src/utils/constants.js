@@ -1,5 +1,7 @@
+// Same-origin /api/v1 on Vercel (rewritten to backend). Local default hits Express directly.
 export const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1'
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.PROD ? '/api/v1' : 'http://localhost:8000/api/v1')
 
 export const TOKEN_KEY = 'streamcraft_access_token'
 export const REFRESH_TOKEN_KEY = 'streamcraft_refresh_token'
