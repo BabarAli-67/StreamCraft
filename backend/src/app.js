@@ -50,15 +50,24 @@ import likeRouter from "./routes/like.routes.js"
 import playlistRouter from "./routes/playlist.routes.js"
 import dashboardRouter from "./routes/dashboard.routes.js"
 
-app.use("/api/v1/healthcheck", healthcheckRouter)
-app.use("/api/v1/users", userRouter)
-app.use("/api/v1/tweets", tweetRouter)
-app.use("/api/v1/subscriptions", subscriptionRouter)
-app.use("/api/v1/videos", videoRouter)
-app.use("/api/v1/comments", commentRouter)
-app.use("/api/v1/likes", likeRouter)
-app.use("/api/v1/playlist", playlistRouter)
-app.use("/api/v1/dashboard", dashboardRouter)
+const mountApiRoutes = (basePath = "") => {
+    const base = basePath.replace(/\/$/, "")
+    app.use(`${base}/healthcheck`, healthcheckRouter)
+    app.use(`${base}/users`, userRouter)
+    app.use(`${base}/tweets`, tweetRouter)
+    app.use(`${base}/subscriptions`, subscriptionRouter)
+    app.use(`${base}/videos`, videoRouter)
+    app.use(`${base}/comments`, commentRouter)
+    app.use(`${base}/likes`, likeRouter)
+    app.use(`${base}/playlist`, playlistRouter)
+    app.use(`${base}/dashboard`, dashboardRouter)
+}
+
+// Canonical API prefix
+mountApiRoutes("/api/v1")
+// Some hosts/rewrites strip /api/v1 before Express — keep login etc. working
+mountApiRoutes("")
+
 
 app.use((req, res) => {
     return res

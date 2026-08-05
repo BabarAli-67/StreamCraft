@@ -1,7 +1,10 @@
 // Same-origin /api/v1 on Vercel (rewritten to backend). Local default hits Express directly.
-export const API_BASE_URL =
+// Always normalize so we never call bare /users/login without the API prefix.
+const rawApiBase =
   import.meta.env.VITE_API_BASE_URL ||
   (import.meta.env.PROD ? '/api/v1' : 'http://localhost:8000/api/v1')
+
+export const API_BASE_URL = rawApiBase.replace(/\/$/, '').replace(/\/api\/v1$/, '') + '/api/v1'
 
 export const TOKEN_KEY = 'streamcraft_access_token'
 export const REFRESH_TOKEN_KEY = 'streamcraft_refresh_token'
