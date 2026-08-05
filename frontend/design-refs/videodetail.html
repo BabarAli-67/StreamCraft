@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StreamCraft - Video Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#303031",
+                      "on-secondary-container": "#bab8b9",
+                      "surface-container-lowest": "#0e0e0f",
+                      "inverse-surface": "#e5e2e3",
+                      "surface-tint": "#d0bcff",
+                      "surface-dim": "#131314",
+                      "on-primary-fixed-variant": "#5516be",
+                      "secondary-fixed-dim": "#c8c6c7",
+                      "on-error-container": "#ffdad6",
+                      "on-surface-variant": "#cbc3d7",
+                      "surface-bright": "#39393a",
+                      "error-container": "#93000a",
+                      "outline-variant": "#494454",
+                      "surface-container-highest": "#353436",
+                      "background": "#131314",
+                      "on-primary-container": "#340080",
+                      "on-secondary-fixed": "#1b1b1c",
+                      "inverse-on-surface": "#313031",
+                      "on-tertiary-fixed": "#2c1700",
+                      "secondary-fixed": "#e5e2e3",
+                      "on-error": "#690005",
+                      "primary-container": "#a078ff",
+                      "surface-container-high": "#2a2a2b",
+                      "secondary": "#c8c6c7",
+                      "tertiary-fixed-dim": "#ffb869",
+                      "secondary-container": "#49494a",
+                      "on-tertiary-container": "#3f2300",
+                      "tertiary-fixed": "#ffdcbb",
+                      "primary-fixed": "#e9ddff",
+                      "on-surface": "#e5e2e3",
+                      "on-primary": "#3c0091",
+                      "on-secondary-fixed-variant": "#474647",
+                      "tertiary": "#ffb869",
+                      "tertiary-container": "#ca801e",
+                      "surface-container": "#201f20",
+                      "primary": "#d0bcff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-background": "#e5e2e3",
+                      "surface-variant": "#353436",
+                      "error": "#ffb4ab",
+                      "surface": "#131314",
+                      "inverse-primary": "#6d3bd7",
+                      "on-tertiary-fixed-variant": "#673d00",
+                      "on-primary-fixed": "#23005c",
+                      "surface-container-low": "#1c1b1c",
+                      "outline": "#958ea0",
+                      "on-tertiary": "#482900"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "20px",
+                      "sm": "12px",
+                      "base": "4px",
+                      "xs": "8px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Manrope"],
+                      "label-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Manrope"],
+                      "headline-md": ["Manrope"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .hover-video-card:hover .progress-bar { opacity: 1; width: 100%; transition: width 1.5s ease-out; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface text-2xl hidden md:block cursor-pointer hover:bg-secondary-container p-2 rounded-full transition-colors">menu</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">StreamCraft</span>
+</div>
+<!-- Search (Center) -->
+<div class="hidden md:flex flex-1 max-w-2xl px-8">
+<div class="flex w-full bg-surface-container-highest border border-outline-variant rounded-full overflow-hidden focus-within:border-primary transition-colors">
+<input class="w-full bg-transparent border-none text-on-surface px-6 py-2 focus:ring-0 font-body-md placeholder-on-surface-variant" placeholder="Search" type="text"/>
+<button class="px-6 bg-surface-container flex items-center justify-center border-l border-outline-variant hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-xs md:gap-sm">
+<button class="hover:bg-secondary-container p-2 rounded-full transition-colors md:hidden text-on-surface">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="hover:bg-secondary-container p-2 rounded-full transition-colors text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined">upload</span>
+<span class="hidden md:block font-label-md text-label-md">Upload</span>
+</button>
+<button class="hover:bg-secondary-container p-2 rounded-full transition-colors text-on-surface relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 border border-outline-variant cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional, highly detailed headshot of a user with a subtle purple neon rim light. The background is a very dark, minimalist gradient. The style is sleek, corporate yet modern, fitting a premium digital streaming platform profile picture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHGE8CwEE76JE0XTkPfG3UnmmS301t1ktafiGCIiz1PFXlpCg13kVVd8M_MQcVVLC44ogPYcW71GjUMK7yh1UWKlLD-m_SnFPyhEh8xV7XeRTdmMSM_ko6N4IzYaUvEexTxM-ZBoP1fVp2JAk0AM0l-QtyspMYEo_g--uAQ0GSYQNLo8S7HOQiTp8imLfUoa-60Q3BNAeDzkAALsqCjN_SkGRQ6Z1XdpSAWw_ue4bVik5Te_dtIL4"/>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-[1800px] mx-auto px-margin-mobile md:px-margin-desktop py-lg grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-[32px]">
+<!-- Left Column: Video & Details -->
+<div class="lg:col-span-8 xl:col-span-9 flex flex-col gap-lg">
+<!-- Video Player Area -->
+<div class="w-full aspect-video bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant relative group">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic, high-contrast digital illustration of a futuristic racing vehicle speeding through a neon-lit cyberpunk metropolis at night. The scene is illuminated by dramatic pink and cyan neon lights reflecting off the wet asphalt, creating a moody, high-energy atmosphere. The visual style is sleek, highly detailed, and immersive, perfectly capturing a premium gaming or sci-fi aesthetic typical of high-end streaming content." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARpOilo3wo-MiUdkyKpazuvASkBqlJVUUdQ4RRTSiHHJ5pzkhK9Qr82xFetbuaYXseli1SumW3w6D9NMf22C-HquCsJoAjetfXvNR5pXTvMKKpX5-oSO_kT8IK7eC2DYkckqR8AgHFKQE-YYroxBBbhBmFIRiJ4jNvrAOQYm7CaG3LwgX1i9M5w4ZBebMtYiea2CXJemd8FzDVyZeFYfPSWuAHTjuWK1HMSqGuUkRWsV2ttXulg4Y')"></div>
+<!-- Mock Player Controls overlay -->
+<div class="absolute bottom-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/3"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span class="material-symbols-outlined">volume_up</span>
+<span class="font-body-md text-xs">12:34 / 45:00</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">settings</span>
+<span class="material-symbols-outlined">fullscreen</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Video Info & Actions -->
+<div class="flex flex-col gap-sm">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Building a Scalable Real-time Shader Engine in WebGL</h1>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img alt="Channel Avatar" class="w-full h-full object-cover" data-alt="A stylized 3D rendered avatar of a tech-focused channel creator. The character wears a modern dark hoodie and VR goggles pushed up on their forehead. The lighting features intense, vibrant violet accents on a deep black background, conveying a premium technical identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsYJ7YmZP16fuCRsOYzwNG1oTjOm1AIzG8nGgRJ-mCk3VvgPjA91zPJ2d13eWTBDPptUFFwp7Lkp4DEDvpENSBk35_wF31THgig6MAOKfF_RLQaA_cSm8IvIUgKS_UTXca03DJTnGDumzH4hIcBU0werO2VocKwtsKDILp28vAnH9eV2B_lXDbcJoZGibgTFPkVK-Gu4IFJkiom686asJOyfjBEuwhldUQPGOWG2Qw30tC9yT1H5I"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface flex items-center gap-1">
+                                CodeAesthetics <span class="material-symbols-outlined text-sm text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+<span class="font-body-md text-sm text-on-surface-variant">1.2M subscribers</span>
+</div>
+<button class="ml-4 bg-primary text-on-primary font-label-md text-label-md rounded-full px-6 py-2.5 hover:brightness-110 transition-all font-bold">Subscribe</button>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+<div class="flex items-center bg-surface-container rounded-full border border-outline-variant">
+<button class="flex items-center gap-2 px-4 py-2 hover:bg-surface-container-high rounded-l-full transition-colors text-primary border-r border-outline-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+<span class="font-label-md text-label-md font-bold">142K</span>
+</button>
+<button class="flex items-center px-4 py-2 hover:bg-surface-container-high rounded-r-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">thumb_down</span>
+</button>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant rounded-full transition-colors text-on-surface">
+<span class="material-symbols-outlined">share</span>
+<span class="font-label-md text-label-md">Share</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant rounded-full transition-colors text-on-surface hidden sm:flex">
+<span class="material-symbols-outlined">download</span>
+<span class="font-label-md text-label-md">Download</span>
+</button>
+<button class="flex items-center px-2 py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant rounded-full transition-colors text-on-surface">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Description Box -->
+<div class="bg-surface-container hover:bg-surface-container-high transition-colors rounded-xl p-md border border-outline-variant cursor-pointer group">
+<div class="font-label-md text-label-md text-on-surface flex gap-2 mb-2">
+<span>1,024,593 views</span>
+<span>•</span>
+<span>Premiered Oct 24, 2023</span>
+<span>•</span>
+<span class="text-primary">#WebGL #CreativeCoding</span>
+</div>
+<p class="font-body-md text-on-surface-variant line-clamp-2 group-hover:line-clamp-none transition-all">
+                    In this masterclass, we dive deep into the architecture of building a real-time shader engine directly in the browser using WebGL. We'll cover memory management, compiling shader variants dynamically, and achieving 60fps even with complex volumetric rendering techniques.
+                    <br/><br/>
+                    Timestamps:<br/>
+                    0:00 - Introduction<br/>
+                    5:20 - Setting up the Context<br/>
+                    14:45 - The Render Loop Architecture
+                </p>
+<div class="mt-2 font-label-md text-label-md text-on-surface font-bold">Show more</div>
+</div>
+<!-- Comments Section -->
+<div class="flex flex-col gap-md mt-4">
+<div class="flex items-center gap-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">4,821 Comments</h3>
+<button class="flex items-center gap-2 text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">sort</span>
+<span class="font-label-md text-label-md">Sort by</span>
+</button>
+</div>
+<div class="flex items-start gap-4 mb-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant shrink-0 mt-1">
+<img alt="My Profile" class="w-full h-full object-cover" data-alt="A tiny profile picture for a comment section user. A minimalist geometric logo consisting of interlocking bright white lines on a dark violet background. Clean, simple, and legible at small sizes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBulfUjkW_HfymF1G4gYd7C_MVgkarCpfFCZRLpklkadRF9PFonGaPIH6EQGG_QXNEPFCh1RPIgYesE8B9HNFu_Lzu0HRlxu9WOT5W4awLRsHSeQUqVqJodlUiWYLBsgVNfKnX0KvDo1HJGoo_ssCUF8oX9FircDSvZixx2nRkA-iNN8RUXzf7ghRo_vsQE1nrTqTkzQgEpg4VYMNT6JpKs5sT-kQUa-v8eey2k1wkXXj-pZSf75xQ"/>
+</div>
+<div class="flex-1">
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-primary pb-1 text-on-surface font-body-md transition-colors focus:ring-0 px-0 placeholder-on-surface-variant mb-2" placeholder="Add a comment..." type="text"/>
+<div class="flex justify-end gap-2 opacity-0 focus-within:opacity-100 transition-opacity">
+<button class="px-4 py-2 text-on-surface-variant font-label-md text-label-md hover:bg-surface-container rounded-full">Cancel</button>
+<button class="px-4 py-2 bg-surface-container text-on-surface-variant font-label-md text-label-md rounded-full">Comment</button>
+</div>
+</div>
+</div>
+<!-- Comment Item -->
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant shrink-0">
+<img alt="User 1" class="w-full h-full object-cover" data-alt="A portrait of a male developer with glasses, warmly lit by soft desk lamp light against a dark room background. He looks focused and professional. Standard user profile picture style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAIK2NpkTLSgRa-VHAj9CGCuRUtP9qrcc4-e0F3hEaZcieRe2ojh_tD4nE0ByNgY9SlFAf28Fbri_s-0C1kq1S2AG1YB3qpZ8XoYIIGsYv1QrAa7UXyOD5Vvx10uOTn9WOT631rpJQ8DegTF2ss3Z4w-GtYmugInYvd0kdAcM3h6vh8EoX0YQkSjShxb5IABswNBFOuZiDxxCMQHN4e-UZp8Ga5albPmfsZn-wSvyuyLd3B-Dy_EY"/>
+</div>
+<div class="flex flex-col gap-1 w-full">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">@DevArchitect</span>
+<span class="font-body-md text-xs text-on-surface-variant">2 days ago</span>
+</div>
+<p class="font-body-md text-on-surface">The way you handled the uniform buffering at 18:30 is exactly what I've been struggling with for weeks. Mind-blowing tutorial, straight to the point.</p>
+<div class="flex items-center gap-4 mt-1">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">thumb_up</span>
+<span class="font-body-md text-xs">842</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">thumb_down</span>
+</button>
+<button class="font-label-md text-xs text-on-surface hover:text-primary transition-colors ml-2">Reply</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Up Next -->
+<div class="lg:col-span-4 xl:col-span-3 flex flex-col gap-md">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">Up Next</h2>
+<div class="flex gap-2">
+<button class="bg-primary text-on-primary font-label-md text-[10px] px-3 py-1 rounded-full">All</button>
+<button class="bg-surface-container text-on-surface font-label-md text-[10px] px-3 py-1 rounded-full border border-outline-variant">Related</button>
+</div>
+</div>
+<!-- Up Next Items -->
+<div class="flex flex-col gap-sm">
+<!-- Item 1 -->
+<div class="flex gap-3 group cursor-pointer hover-video-card">
+<div class="w-[160px] xl:w-[180px] aspect-video bg-surface-container-highest rounded-lg overflow-hidden shrink-0 relative">
+<div class="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-300" data-alt="A highly detailed 3D thumbnail showing a glowing wireframe of a complex geometric shape transitioning into a solid metallic object. The background is a stark black void. Bright neon cyan and deep violet accents highlight the vertices. The overall aesthetic is minimalist, tech-heavy, and premium." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaI8L0jVJg4XnFWTg9tuexk3ou4TEoNz4zS0lIFyBHdadj-NlVyDAXtjr22GWd2-aUCvb6AYi2aEtdVJdhLmbaS7NVxBOsrcIREsSzRhSbCG5-MKnL-k_pW4XKGYmIe63_pfj3oVWi9J9P-9l1-H_UrEZKR0cDgVrrDmA7orKF67Fg5ebSdBFBx6whn5IqHAqof-5tYnlPj2gwwn2pSup0Pc5IP3Jt-jz9TGUtMZBWY8fP4g0S0sc')"></div>
+<span class="absolute bottom-1 right-1 bg-black/80 text-white font-label-md text-[10px] px-1 rounded">24:10</span>
+<div class="absolute bottom-0 left-0 h-[2px] bg-primary w-0 opacity-0 progress-bar"></div>
+</div>
+<div class="flex flex-col gap-1 pr-2">
+<h4 class="font-body-md text-on-surface leading-tight line-clamp-2 group-hover:text-primary transition-colors font-semibold">Advanced Raymarching Techniques in Three.js</h4>
+<span class="font-body-md text-xs text-on-surface-variant">CodeAesthetics</span>
+<span class="font-body-md text-xs text-on-surface-variant">340K views • 1 month ago</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-3 group cursor-pointer hover-video-card">
+<div class="w-[160px] xl:w-[180px] aspect-video bg-surface-container-highest rounded-lg overflow-hidden shrink-0 relative">
+<div class="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-300" data-alt="A moody, cinematic thumbnail image featuring a sleek, dark mechanical keyboard on a deep black desk. A single strip of intense electric violet LED light casts a soft glow on the keys. The framing is macro and dramatic, emphasizing the premium quality of the hardware. Minimalist corporate aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBe6e2u-tBFF4ylXzlfKY9PMLQnJw2a_HFnFcIh74R-V8o6cXkn5bwI9VCXw1UfPn_2uo4X6djwm5B5yje2sfWrWAYupKB8S5vgfLjXZQvHA8_qgRFj-K3oReXVDOgmo3NYKfjpcEjIa05PiP68e6ox_v22VdTKrPY65i57-lg9oETtHFF7xF9igW731n2f8gnglYO3g6EAt1tLeNbzDFkGtPDFFyNLU8L50mn9Zn4_WBYImxjNTQU')"></div>
+<span class="absolute bottom-1 right-1 bg-black/80 text-white font-label-md text-[10px] px-1 rounded">18:45</span>
+<div class="absolute bottom-0 left-0 h-[2px] bg-primary w-0 opacity-0 progress-bar"></div>
+</div>
+<div class="flex flex-col gap-1 pr-2">
+<h4 class="font-body-md text-on-surface leading-tight line-clamp-2 group-hover:text-primary transition-colors font-semibold">My Minimalist Developer Desk Setup 2024</h4>
+<span class="font-body-md text-xs text-on-surface-variant">Tech Minimal</span>
+<span class="font-body-md text-xs text-on-surface-variant">890K views • 3 weeks ago</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex gap-3 group cursor-pointer hover-video-card">
+<div class="w-[160px] xl:w-[180px] aspect-video bg-surface-container-highest rounded-lg overflow-hidden shrink-0 relative">
+<div class="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-300" data-alt="An abstract visualization of data structures. Countless tiny, glowing violet and cyan nodes connected by fine lines in a vast, deep black three-dimensional space. The depth of field is shallow, blurring the nodes in the background to create a sense of massive scale. A sophisticated, corporate tech aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPh-u01YEo_MJHP2FFu3vWHyleTXOLuKGItvNEnxFezkD81IaD2MxnugR-mYx5tgvAgKHgl4sm3XlID3evDt6kMs3PXYV5ddV4dELLCiVY_I-cG0cQ5R_MRoyntMysJ22gRIt63wcWd59XBLob6jotisX0pmgd1NHzjwA3Jb_zFNBoJ-mss5xnojAr_VeyXFrBmUmT5MT49B9fDcqYqIxaYjT_yNeNGRcEYNAbgsaKQq7TkYt0GMM')"></div>
+<span class="absolute bottom-1 right-1 bg-black/80 text-white font-label-md text-[10px] px-1 rounded">42:15</span>
+<div class="absolute bottom-0 left-0 h-[2px] bg-primary w-0 opacity-0 progress-bar"></div>
+</div>
+<div class="flex flex-col gap-1 pr-2">
+<h4 class="font-body-md text-on-surface leading-tight line-clamp-2 group-hover:text-primary transition-colors font-semibold">Understanding Graph Databases: A Visual Guide</h4>
+<span class="font-body-md text-xs text-on-surface-variant">DataViz Pro</span>
+<span class="font-body-md text-xs text-on-surface-variant">112K views • 5 days ago</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

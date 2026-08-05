@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StreamCraft - Channel Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary": "#303031",
+                        "on-secondary-container": "#bab8b9",
+                        "surface-container-lowest": "#0e0e0f",
+                        "inverse-surface": "#e5e2e3",
+                        "surface-tint": "#d0bcff",
+                        "surface-dim": "#131314",
+                        "on-primary-fixed-variant": "#5516be",
+                        "secondary-fixed-dim": "#c8c6c7",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#cbc3d7",
+                        "surface-bright": "#39393a",
+                        "error-container": "#93000a",
+                        "outline-variant": "#494454",
+                        "surface-container-highest": "#353436",
+                        "background": "#131314",
+                        "on-primary-container": "#340080",
+                        "on-secondary-fixed": "#1b1b1c",
+                        "inverse-on-surface": "#313031",
+                        "on-tertiary-fixed": "#2c1700",
+                        "secondary-fixed": "#e5e2e3",
+                        "on-error": "#690005",
+                        "primary-container": "#a078ff",
+                        "surface-container-high": "#2a2a2b",
+                        "secondary": "#c8c6c7",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "secondary-container": "#49494a",
+                        "on-tertiary-container": "#3f2300",
+                        "tertiary-fixed": "#ffdcbb",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface": "#e5e2e3",
+                        "on-primary": "#3c0091",
+                        "on-secondary-fixed-variant": "#474647",
+                        "tertiary": "#ffb869",
+                        "tertiary-container": "#ca801e",
+                        "surface-container": "#201f20",
+                        "primary": "#d0bcff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-background": "#e5e2e3",
+                        "surface-variant": "#353436",
+                        "error": "#ffb4ab",
+                        "surface": "#131314",
+                        "inverse-primary": "#6d3bd7",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-primary-fixed": "#23005c",
+                        "surface-container-low": "#1c1b1c",
+                        "outline": "#958ea0",
+                        "on-tertiary": "#482900"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "20px",
+                        "sm": "12px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "40px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Manrope"]
+                    },
+                    fontSize: {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .hover-video-card:hover .video-progress {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg text-body-lg min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary font-body-md text-body-md docked full-width border-b border-outline-variant dark:border-outline-variant flat no shadows flex justify-between items-center w-full px-margin-desktop h-16 sticky top-0 z-50">
+<div class="flex items-center gap-lg">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors hidden md:block">menu</span>
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface flex items-center gap-sm cursor-pointer">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                StreamCraft
+            </div>
+</div>
+<div class="flex-1 max-w-2xl mx-lg hidden md:flex">
+<div class="flex items-center w-full bg-surface-container rounded-full border border-outline-variant focus-within:border-primary focus-within:ring-1 focus-within:ring-primary overflow-hidden transition-all">
+<div class="pl-md pr-sm text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface placeholder:text-on-surface-variant py-sm font-body-md text-body-md" placeholder="Search StreamCraft" type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="md:hidden text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">upload</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant cursor-pointer ml-sm">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A small circular user profile image showing a minimalist, abstract 3D geometric shape in soft glowing purple and gray tones, rendered against a deep black background to seamlessly blend into a dark mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0GT2SflHyQk_4GPDvO5FdbyeijTgbiDEAfd0XApvjSuLHVx1mGLhqzAveNg1U-j--SFiaO6mVZBQUVonkzrxg__kjTFfCe5bv_kzrprqDhlRNmq4O-PDIGXgxuryULb-8-Dop1SJ6TVspQAKdR2bTUYrtZrS6swX48tQFE1mxxvsWA5hybyW3KsPvcyMXKa7RX4G5rvIk-GUc8pH_cX8JRq9hN2q11m0Pv_O1dZZhjUhDckfuYBo"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden h-[calc(100vh-64px)]">
+<!-- SideNavBar -->
+<aside class="bg-surface dark:bg-surface text-primary dark:text-primary font-label-md text-label-md docked left-0 h-full w-[240px] border-r border-outline-variant dark:border-outline-variant flat no shadows fixed left-0 top-0 pt-16 flex flex-col z-40 overflow-y-auto hidden md:flex">
+<div class="py-sm">
+<!-- Using inactive styles for all since this is a specific channel destination -->
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+                    Home
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">subscriptions</span>
+                    Subscriptions
+                </a>
+<div class="my-sm border-t border-outline-variant"></div>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">history</span>
+                    History
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">thumb_up</span>
+                    Liked Videos
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">playlist_play</span>
+                    Playlists
+                </a>
+<div class="my-sm border-t border-outline-variant"></div>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">chat</span>
+                    Tweets
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+</div>
+<div class="mt-auto pb-lg">
+<div class="my-sm border-t border-outline-variant"></div>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+                    Help
+                </a>
+<div class="px-4 py-md mt-sm bg-surface-container-lowest mx-sm rounded-lg border border-outline-variant flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-primary text-3xl mb-xs">star</span>
+<h4 class="font-headline-md text-headline-md text-on-surface">StreamCraft</h4>
+<p class="font-label-md text-label-md text-on-surface-variant mb-sm">Premium Streaming</p>
+<button class="w-full py-2 bg-primary text-on-primary font-label-md text-label-md rounded hover:brightness-110 transition-all font-bold">Go Pro</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto md:ml-[240px] w-full bg-background relative pb-xl">
+<!-- Channel Banner -->
+<div class="w-full h-48 md:h-64 lg:h-80 relative overflow-hidden bg-surface-container-high border-b border-outline-variant">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A sweeping, hyper-detailed digital environment rendering of a futuristic neo-Tokyo cityscape at night, serving as a widescreen channel banner. The sprawling architecture is illuminated by vivid electric violet and stark white neon lights, contrasting sharply against the pitch-black sky and deep gray structural elements, perfectly aligning with a premium, high-energy gaming or technology brand identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuByBtQBbMsgVA7JnN2W3zlJhd9LwlIan5vTFeAzWXDUhiHK8YZegyL95qHm9eX_QJQCDysrhHtlM-8Y9g6hc7fTl_2PPHhpe4uxK9aAinAG5SH2aafPZBBIizsocZ35Wb-tLofiSvYFhOwx60TrTzfm7SClpDsuxBDhnMRZ8v4tTvTzr9cLB6j4C2A3o__M0gTp7bMxIk-FvoNQhAEHsJ14FIVj7djroDQmDXZLPiPoHOBVQUVV1PU')"></div>
+<!-- Gradient overlay for better text contrast if needed, though mostly for aesthetic -->
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+</div>
+<!-- Channel Header Info -->
+<div class="max-w-[1600px] mx-auto px-margin-mobile md:px-margin-desktop relative">
+<!-- Avatar & Core Info Row -->
+<div class="flex flex-col sm:flex-row sm:items-end gap-lg -mt-12 sm:-mt-16 md:-mt-20 mb-lg relative z-10">
+<!-- Avatar -->
+<div class="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-background bg-surface-container overflow-hidden shrink-0 shadow-lg relative">
+<img class="w-full h-full object-cover" data-alt="A striking, close-up digital portrait of a highly stylized android or cybernetic character used as a main profile avatar. The character features sleek, matte zinc-toned plating adorned with subtle, glowing electric violet circuitry patterns. The lighting is focused and dramatic, isolating the character against a pure black background to ensure maximum visual impact within a dark-mode user interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6_mD7jofv4ZzDma1yCiFSZrPLQVkTfl9BkwcSMYqvUJSX3OWl7D_55CfwqDZZsE20KvDAykpjLYbbUo8KTcky5oMiZ9EbhRHyLhGf4BEOL1d29EGUeMl-m2yJD5CbJiwxyqJdSE18m2RgKhu-9Je1E6CPj2a8MOLmBlq9gYCNCdhHRPIUyM3UfZfwW3vO3lYsTyAuJPGjJadyo6jLIjtP4Kf-5toG9-hkFv89USc0iKuI7lKQDZ4"/>
+</div>
+<!-- Details & Actions -->
+<div class="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-md pb-sm">
+<div class="flex flex-col gap-base">
+<h1 class="font-headline-lg text-headline-lg text-on-surface flex items-center gap-sm">
+                                NexusGaming
+                                <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</h1>
+<div class="flex items-center gap-sm text-on-surface-variant font-body-md text-body-md">
+<span class="font-bold">@NexusGaming</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>2.4M subscribers</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>1,248 videos</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-xs line-clamp-2">
+                                High-tier gameplay, in-depth technical analysis, and cinematic edits from the bleeding edge of competitive gaming. New uploads every Tuesday and Friday.
+                            </p>
+</div>
+<div class="flex items-center gap-sm shrink-0">
+<button class="px-lg py-sm rounded-full border border-outline-variant text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-lg">notifications_active</span>
+</button>
+<button class="px-xl py-sm rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold hover:brightness-110 transition-all shadow-[0_0_15px_rgba(139,92,246,0.3)]">
+                                Subscribe
+                            </button>
+</div>
+</div>
+</div>
+<!-- Tabs Navigation -->
+<div class="w-full border-b border-outline-variant flex items-center gap-xl overflow-x-auto no-scrollbar mt-md mb-lg">
+<button class="tab-btn active pb-sm relative text-on-surface font-headline-md text-headline-md font-bold transition-colors" data-target="tab-videos">
+                        Videos
+                        <div class="absolute bottom-[-1px] left-0 w-full h-[3px] bg-primary rounded-t-full"></div>
+</button>
+<button class="tab-btn pb-sm relative text-on-surface-variant hover:text-on-surface font-headline-md text-headline-md transition-colors" data-target="tab-tweets">
+                        Tweets
+                        <div class="absolute bottom-[-1px] left-0 w-full h-[3px] bg-primary rounded-t-full hidden tab-indicator"></div>
+</button>
+<button class="tab-btn pb-sm relative text-on-surface-variant hover:text-on-surface font-headline-md text-headline-md transition-colors" data-target="tab-playlists">
+                        Playlists
+                        <div class="absolute bottom-[-1px] left-0 w-full h-[3px] bg-primary rounded-t-full hidden tab-indicator"></div>
+</button>
+<button class="tab-btn pb-sm relative text-on-surface-variant hover:text-on-surface font-headline-md text-headline-md transition-colors" data-target="tab-about">
+                        About
+                        <div class="absolute bottom-[-1px] left-0 w-full h-[3px] bg-primary rounded-t-full hidden tab-indicator"></div>
+</button>
+</div>
+<!-- Tab Content: Videos -->
+<div class="tab-content w-full" id="tab-videos">
+<!-- Filters/Sort -->
+<div class="flex items-center gap-sm mb-lg">
+<button class="px-md py-xs rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high border border-outline-variant transition-colors">Latest</button>
+<button class="px-md py-xs rounded-lg bg-transparent text-on-surface-variant font-label-md text-label-md hover:bg-surface-container border border-transparent transition-colors">Popular</button>
+<button class="px-md py-xs rounded-lg bg-transparent text-on-surface-variant font-label-md text-label-md hover:bg-surface-container border border-transparent transition-colors">Oldest</button>
+</div>
+<!-- Video Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-gutter gap-y-xl">
+<!-- Video Card 1 -->
+<div class="flex flex-col gap-sm group hover-video-card cursor-pointer">
+<div class="w-full aspect-video rounded-xl bg-surface-container-highest overflow-hidden relative border border-outline-variant group-hover:border-primary transition-colors duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-500" data-alt="A highly detailed 3D render used as a video thumbnail, showing a high-octane space dogfight from a first-person cockpit perspective. The scene is filled with vibrant laser fire in neon purple and bright white against the deep black void of space, embodying a sleek, modern, high-energy gaming aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_gDvIhxj0ZGCxsnCW5tnrJzr2r6_BwUdieeZRC55PmzLhdpsOMVFije6-knaSh05orPc41BRQj4DlO3FRpccOGVGcyoqzQs3ZOJrman45IYT9SOV-FHNhKWlG-hYnMMXnxyo5iaqOrmz8zMSQtjX_BMczp7E4OvqZWc9T-CznBKEYkB2bmWMmmnS2aMQB99AhZbs8ETPEP4hE6K-UIWmINSoB29OhzKLOiNMPdkB1TKGroD673NY"/>
+<div class="absolute bottom-2 right-2 bg-background/90 backdrop-blur-sm px-2 py-0.5 rounded text-on-surface font-label-md text-label-md border border-outline-variant">24:15</div>
+<!-- Hover Progress Bar Indicator -->
+<div class="absolute bottom-0 left-0 h-1 bg-primary w-0 video-progress transition-all duration-500 ease-out"></div>
+</div>
+<div class="flex gap-sm items-start pr-md">
+<div class="flex-1 flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-2 leading-tight group-hover:text-primary transition-colors">The Absolute State of Competitive Play in Season 9</h3>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-body-md text-sm">
+<span>450K views</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>2 days ago</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Video Card 2 -->
+<div class="flex flex-col gap-sm group hover-video-card cursor-pointer">
+<div class="w-full aspect-video rounded-xl bg-surface-container-highest overflow-hidden relative border border-outline-variant group-hover:border-primary transition-colors duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-500" data-alt="A pristine, minimalist video thumbnail design featuring a centered, glowing geometric artifact hovering over a reflective obsidian surface. The lighting is stark and dramatic, utilizing a color palette restricted to deep zinc tones and a single, piercing electric violet accent light, representing a deep-dive technical analysis video." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSCZJk6iXadzeVl1hbphPLwU0HJ4XNqew8abd4vUxGwD35vu6m4y3k1qUnLfFCXI-72GYkuhmqaPyXdl8Pyezsa8r63NBuMcTPT3agAbdJ638JcNYqwynQgU7AfMYzqqCvZGFAISEc9EGS5fwlg9hFt8gnM47_QSdZWwrcLqRmyQ8HjUVpBOBHgseK75O67lOT70i8Cd2pIssonAwI0khkeW1XU5iv0I2dNdDO86E-4nWjpGG4M38"/>
+<div class="absolute bottom-2 right-2 bg-background/90 backdrop-blur-sm px-2 py-0.5 rounded text-on-surface font-label-md text-label-md border border-outline-variant">18:32</div>
+<div class="absolute bottom-0 left-0 h-1 bg-primary w-0 video-progress transition-all duration-500 ease-out"></div>
+</div>
+<div class="flex gap-sm items-start pr-md">
+<div class="flex-1 flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-2 leading-tight group-hover:text-primary transition-colors">Breaking Down the New Engine Physics</h3>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-body-md text-sm">
+<span>120K views</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>5 days ago</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Video Card 3 -->
+<div class="flex flex-col gap-sm group hover-video-card cursor-pointer">
+<div class="w-full aspect-video rounded-xl bg-surface-container-highest overflow-hidden relative border border-outline-variant group-hover:border-primary transition-colors duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-500" data-alt="An energetic video thumbnail depicting a highly stylized esports tournament stage. The scene is dominated by massive dark screens, sharp angular architectural lines, and intense, dynamic lighting beams in pure white and deep purple, capturing the high-stakes atmosphere of competitive professional gaming." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPI215eEl1QBjelwA65MGilv-RQeyA1KhzaMhlhU8kAbmsavDrTQJIxV5zhBucaSZ9v_jO51zI2LCaaPmPcDSYfqgeCCqM1Q-jTAB-LNLO4n2sQjAot7r6wQHvEiGoDWSyU9ZMB6zZbgVqCDmvlrg4Y0NWOTpqn2EGEATR74i7ow-CBRh-PTlDM4JoWNludMOAN4lbCoTBrg-CvWIHrkM36lgTeOpGs6qQnT7KRxGC0LfbuypWtxw"/>
+<div class="absolute bottom-2 right-2 bg-background/90 backdrop-blur-sm px-2 py-0.5 rounded text-on-surface font-label-md text-label-md border border-outline-variant">1:45:10</div>
+<div class="absolute bottom-0 left-0 h-1 bg-primary w-0 video-progress transition-all duration-500 ease-out"></div>
+</div>
+<div class="flex gap-sm items-start pr-md">
+<div class="flex-1 flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-2 leading-tight group-hover:text-primary transition-colors">Grand Finals VOD - World Championship 2024</h3>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-body-md text-sm">
+<span>1.1M views</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>1 week ago</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Video Card 4 -->
+<div class="flex flex-col gap-sm group hover-video-card cursor-pointer">
+<div class="w-full aspect-video rounded-xl bg-surface-container-highest overflow-hidden relative border border-outline-variant group-hover:border-primary transition-colors duration-300">
+<img class="w-full h-full object-cover transform group-hover:scale-[1.02] transition-transform duration-500" data-alt="A sleek, modern video thumbnail featuring a macro shot of high-end computer hardware components, specifically a futuristic-looking graphics card. The metallic surfaces are rendered in moody zinc grays, highlighted by sharp, high-contrast reflections and subtle glowing purple LED accents, perfectly fitting a premium tech review aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs6WZ6B7qgk6T4pvFq15G_Kmp4NwlwMpO9Do6aZduXtWDNfh-kCkZgDeAgu2kCAdKypySeV-ziBPQrmx-Q9Gx_yz5nsgs6RaWLFhkONWCBPLH7kjRmb1nhzU5M0O9-m-rSbN4FwcjFtWXRhs7NYfVRVcegChXiS9AAqKVeqzMZosLRPvtmIKy-8p3KDbylhV0SkN6FzBxGHi-VUoYj2WqCOpTXV28EmS02cwnek_bAQvL5TDU9aec"/>
+<div class="absolute bottom-2 right-2 bg-background/90 backdrop-blur-sm px-2 py-0.5 rounded text-on-surface font-label-md text-label-md border border-outline-variant">12:05</div>
+<div class="absolute bottom-0 left-0 h-1 bg-primary w-0 video-progress transition-all duration-500 ease-out"></div>
+</div>
+<div class="flex gap-sm items-start pr-md">
+<div class="flex-1 flex flex-col gap-base">
+<h3 class="font-headline-md text-headline-md text-on-surface line-clamp-2 leading-tight group-hover:text-primary transition-colors">Is the New Setup Worth It? (Honest Review)</h3>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-body-md text-sm">
+<span>320K views</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>2 weeks ago</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Content: Tweets (Hidden by default) -->
+<div class="tab-content hidden w-full max-w-3xl mx-auto" id="tab-tweets">
+<div class="flex flex-col gap-md">
+<!-- Tweet Card 1 (Text only) -->
+<div class="bg-surface-container rounded-xl p-md border border-outline-variant hover:border-outline transition-colors">
+<div class="flex items-start gap-sm mb-sm">
+<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="A small circular user profile image showing a minimalist, abstract 3D geometric shape in soft glowing purple and gray tones, rendered against a deep black background to seamlessly blend into a dark mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASAIraYd-VQJQbE5rCeBvVVG6i699gp7M4SvpBCQSH3h88afQduHSUZO0f-znutYfx03YwnXmpX5oCWKuoNsJIDkQY-DhT45saCCmzh1QkGx-fXAap1x4OgrpFmZeRP1xDpO6sP41TM8ePD5zfncgMMGkh3XxzwdLmT77m6P_Z4zCX7zYwf7q3Z4NFUKSyJY209f0B_HE3lg-PG31DkFlFUxcyeP_tM9qP4hZ-WCqsBpxLcLT-_dM"/>
+<div class="flex-1">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md text-base text-on-surface font-bold">NexusGaming</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-on-surface-variant font-body-md text-body-md text-sm">@NexusGaming</span>
+<span class="text-on-surface-variant font-body-md text-body-md text-sm">· 2h</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-xs">
+                                        Just finished rendering the deep dive on the new patch notes. The meta is about to shift massively. Video goes live at 5PM EST. Be ready. 🚀
+                                    </p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-sm pt-sm border-t border-outline-variant/50 max-w-md text-on-surface-variant">
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+<span class="font-label-md text-label-md text-xs">142</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">repeat</span>
+<span class="font-label-md text-label-md text-xs">56</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+<span class="font-label-md text-label-md text-xs">2.1K</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="font-label-md text-label-md text-xs">15K</span>
+</button>
+</div>
+</div>
+<!-- Tweet Card 2 (With Image) -->
+<div class="bg-surface-container rounded-xl p-md border border-outline-variant hover:border-outline transition-colors">
+<div class="flex items-start gap-sm mb-sm">
+<img class="w-10 h-10 rounded-full object-cover shrink-0" data-alt="A small circular user profile image showing a minimalist, abstract 3D geometric shape in soft glowing purple and gray tones, rendered against a deep black background to seamlessly blend into a dark mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAfQ4u1TUtklrSj34xO55jmLXJROlznXNTd8zZPoOVfTN6D1DCjix69fsmtlwOqrCbawrg581gD0tEWsmSIUjtOW5DhMXGw3uyZOU5f05yTEjGIcDxlXvwFmzwfIdMT9YwaNmDWznjwRNd8wxQckQOIPYxanCx3nwpNwDwBoRgXwMN4UDmI68C4EBCJ85KsR_9cBjUUi0uuo-qECxMDz9JbQKX0z94ErtrtMlBZl3KAMRUNYzaovg"/>
+<div class="flex-1">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md text-base text-on-surface font-bold">NexusGaming</span>
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-on-surface-variant font-body-md text-body-md text-sm">@NexusGaming</span>
+<span class="text-on-surface-variant font-body-md text-body-md text-sm">· 1d</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-xs mb-sm">
+                                        Setup is finally clean. Cable management took hours but totally worth it for that minimal theater-mode vibe. What do you guys think?
+                                    </p>
+<div class="w-full h-64 rounded-xl overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A photograph of a highly sophisticated, minimalist gaming setup situated in a dark, atmospheric room. The desk is impeccably clean, featuring a sleek, ultra-wide monitor displaying an abstract electric violet waveform. Soft, ambient zinc and purple bias lighting subtly illuminates the matte black peripherals, perfectly encapsulating a modern, high-end corporate-gamer aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdKg4EKj7w8s4zObS3lrVFZRmrtA_RMSL1YRIaz8R63mn19ufzEWgH9tkiXkYO3OIKMSbTnvm5HwyKvQNbjlfylpcfs0oKaF8xmmqEqW9yCTUbrmKa8TTWlmSWmSy-2qbH8SdI_ZHazwfyJlmTWjf0e-u8hUjtyheGEmTyPf3Exp4hYtzXnNFCzqlgtx1781ygZFHwQdLianZR5M2Cm1_wigcWXr1HZDtNz1OaMF-Q8xT---jh9pY"/>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-sm pt-sm border-t border-outline-variant/50 max-w-md text-on-surface-variant">
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+<span class="font-label-md text-label-md text-xs">892</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">repeat</span>
+<span class="font-label-md text-label-md text-xs">315</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+<span class="font-label-md text-label-md text-xs">18.4K</span>
+</button>
+<button class="flex items-center gap-xs hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="font-label-md text-label-md text-xs">250K</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Placeholder Tabs -->
+<div class="tab-content hidden w-full flex items-center justify-center py-xl text-on-surface-variant font-headline-md text-headline-md" id="tab-playlists">
+                    Playlists Content Area
+                </div>
+<div class="tab-content hidden w-full flex items-center justify-center py-xl text-on-surface-variant font-headline-md text-headline-md" id="tab-about">
+                    About Content Area
+                </div>
+</div>
+</main>
+</div>
+<script>
+        // Simple Tab Switching Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Reset all
+                    tabBtns.forEach(b => {
+                        b.classList.remove('active', 'text-on-surface', 'font-bold');
+                        b.classList.add('text-on-surface-variant');
+                        b.querySelector('.absolute').classList.add('hidden');
+                    });
+                    tabContents.forEach(c => c.classList.add('hidden'));
+
+                    // Activate clicked
+                    btn.classList.add('active', 'text-on-surface', 'font-bold');
+                    btn.classList.remove('text-on-surface-variant');
+                    btn.querySelector('.absolute').classList.remove('hidden');
+                    
+                    const targetId = btn.getAttribute('data-target');
+                    document.getElementById(targetId).classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body></html>

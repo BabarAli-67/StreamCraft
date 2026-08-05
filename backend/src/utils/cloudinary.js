@@ -7,23 +7,59 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET 
 });
 
-const uploadOnCloudinary = async (localFilePath) => {
+/**
+ * Extract Cloudinary public_id from a full delivery URL.
+ */
+const getPublicIdFromUrl = (url = "") => {
     try {
-        if (!localFilePath) return null
+        const parts = url.split("/");
+        const uploadIndex = parts.findIndex((part) => part === "upload");
+        if (uploadIndex === -1) return null;
 
-        const response = await cloudinary.uploader.upload(localFilePath, {
-            resource_type: "auto"
-        })
+        let pathParts = parts.slice(uploadIndex + 1);
+        if (pathParts[0] && /^v\d+$/.test(pathParts[0])) {
+            pathParts = pathParts.slice(1);
+        }
 
-        // Remove local temp file after successful upload
-        fs.unlinkSync(localFilePath)
-        return response;
-
-    } catch (error) {
-        // Clean up local temp file if upload failed
-        fs.unlinkSync(localFilePath)
+        const publicPath = pathParts.join("/");
+        return publicPath.replace(/\.[^/.]+$/, "");
+    } catch {
         return null;
     }
-}
+};
 
-export {uploadOnCloudinary}
+const uploadOnCloudinary = async (localFilePath) => {
+    try {
+        if (!localFilePath) return null;
+
+        const response = await cloudinary.uploader.upload(localFilePath, {
+            resource_type: "auto",
+            folder: "streamcraft"
+        });
+
+        fs.unlinkSync(localFilePath);
+        return response;
+    } catch (error) {
+        if (localFilePath && fs.existsSync(localFilePath)) {
+            fs.unlinkSync(localFilePath);
+        }
+        return null;
+    }
+};
+
+const deleteFromCloudinary = async (url, resourceType = "image") => {
+    try {
+        if (!url) return null;
+
+        const publicId = getPublicIdFromUrl(url);
+        if (!publicId) return null;
+
+        return await cloudinary.uploader.destroy(publicId, {
+            resource_type: resourceType
+        });
+    } catch {
+        return null;
+    }
+};
+
+export { uploadOnCloudinary, deleteFromCloudinary, getPublicIdFromUrl }

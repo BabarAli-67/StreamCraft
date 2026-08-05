@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StreamCraft Home Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#303031",
+                      "on-secondary-container": "#bab8b9",
+                      "surface-container-lowest": "#0e0e0f",
+                      "inverse-surface": "#e5e2e3",
+                      "surface-tint": "#d0bcff",
+                      "surface-dim": "#131314",
+                      "on-primary-fixed-variant": "#5516be",
+                      "secondary-fixed-dim": "#c8c6c7",
+                      "on-error-container": "#ffdad6",
+                      "on-surface-variant": "#cbc3d7",
+                      "surface-bright": "#39393a",
+                      "error-container": "#93000a",
+                      "outline-variant": "#494454",
+                      "surface-container-highest": "#353436",
+                      "background": "#131314",
+                      "on-primary-container": "#340080",
+                      "on-secondary-fixed": "#1b1b1c",
+                      "inverse-on-surface": "#313031",
+                      "on-tertiary-fixed": "#2c1700",
+                      "secondary-fixed": "#e5e2e3",
+                      "on-error": "#690005",
+                      "primary-container": "#a078ff",
+                      "surface-container-high": "#2a2a2b",
+                      "secondary": "#c8c6c7",
+                      "tertiary-fixed-dim": "#ffb869",
+                      "secondary-container": "#49494a",
+                      "on-tertiary-container": "#3f2300",
+                      "tertiary-fixed": "#ffdcbb",
+                      "primary-fixed": "#e9ddff",
+                      "on-surface": "#e5e2e3",
+                      "on-primary": "#3c0091",
+                      "on-secondary-fixed-variant": "#474647",
+                      "tertiary": "#ffb869",
+                      "tertiary-container": "#ca801e",
+                      "surface-container": "#201f20",
+                      "primary": "#d0bcff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-background": "#e5e2e3",
+                      "surface-variant": "#353436",
+                      "error": "#ffb4ab",
+                      "surface": "#131314",
+                      "inverse-primary": "#6d3bd7",
+                      "on-tertiary-fixed-variant": "#673d00",
+                      "on-primary-fixed": "#23005c",
+                      "surface-container-low": "#1c1b1c",
+                      "outline": "#958ea0",
+                      "on-tertiary": "#482900"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "20px",
+                      "sm": "12px",
+                      "base": "4px",
+                      "xs": "8px",
+                      "lg": "24px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "40px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Manrope"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Manrope"
+                      ],
+                      "headline-md": [
+                              "Manrope"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Manrope"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        body { background-color: #0F0F10; color: #e5e2e3; }
+        /* Custom scrollbar for chips */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      </style>
+</head>
+<body class="bg-background font-body-md text-on-background m-0 p-0 flex h-screen overflow-hidden antialiased">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col z-40 overflow-y-auto bg-surface dark:bg-surface fixed left-0 top-0 h-screen pt-16 border-r border-outline-variant dark:border-outline-variant w-[240px]">
+<nav class="flex-1 px-4 py-6 space-y-2">
+<a class="flex items-center gap-4 text-on-surface dark:text-on-surface border-l-4 border-primary bg-surface-container-high py-3 px-4 rounded-r-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+                Home
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">subscriptions</span>
+                Subscriptions
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">history</span>
+                History
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">thumb_up</span>
+                Liked Videos
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">playlist_play</span>
+                Playlists
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">chat</span>
+                Tweets
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-3 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+</nav>
+<div class="px-6 py-4 mb-4">
+<div class="bg-surface-container-high p-4 rounded-lg flex flex-col items-center border border-outline-variant">
+<p class="font-headline-md text-headline-md font-bold text-primary dark:text-primary mb-1">StreamCraft</p>
+<p class="font-label-md text-label-md text-on-surface-variant mb-4">Premium Streaming</p>
+<button class="w-full bg-[#8B5CF6] text-white font-label-md text-label-md py-2 rounded-lg font-bold hover:brightness-110 transition-all">Go Pro</button>
+</div>
+</div>
+<div class="px-4 pb-6 mt-auto space-y-2 border-t border-outline-variant pt-4">
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-2 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-4 text-on-surface-variant dark:text-on-surface-variant py-2 px-4 hover:bg-surface-container dark:hover:bg-surface-container transition-all rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">help</span>
+                Help
+            </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col md:ml-[240px] h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 sticky top-0 z-50 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface tracking-tight">StreamCraft</div>
+</div>
+<div class="flex-1 max-w-2xl mx-8 hidden sm:flex items-center bg-[#0F0F10] border border-outline-variant rounded-full px-4 py-2 focus-within:border-[#8B5CF6] focus-within:ring-1 focus-within:ring-[#8B5CF6] transition-all">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="w-full bg-transparent border-none focus:outline-none focus:ring-0 text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant" placeholder="Search" type="text"/>
+</div>
+<div class="flex items-center gap-3 md:gap-6">
+<button class="hidden sm:flex items-center gap-2 px-4 py-2 bg-transparent border border-outline-variant text-on-surface rounded-full font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">upload</span>
+<span class="hidden lg:inline">Upload</span>
+</button>
+<button class="text-on-surface hover:bg-secondary-container p-2 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="sm:hidden text-on-surface p-2 rounded-full">
+<span class="material-symbols-outlined">search</span>
+</button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover cursor-pointer hover:border-primary transition-colors" data-alt="A small circular user avatar showing a smiling person in a brightly lit modern room with a sleek charcoal grey aesthetic and slight purple neon highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK29CYq9m_32bhyvSSm8cvK227TRM0M6lUZfTRbAw_M_x9T9n6LBbzfnBZgkSdVfHlfO9le4xpLY8bwXRhmNQMtcBGlC3qB5kzhCW9fzXtGGXePKMsHF_QAtbCy5JyvPT-Dxz0U2VzXqw5Oxu1naIq2rX7TqA7xm9_9bWh9Ndd0GhqaMZiOekiS10qkpATQp654Td16Yqq8i9AlAu3htA03JWKdefcFAOkAqDJBwQv_0M-yueemFM"/>
+</div>
+</header>
+<!-- Feed Container -->
+<div class="flex-1 overflow-y-auto pt-6 px-margin-mobile md:px-margin-desktop pb-24 md:pb-12 bg-background">
+<!-- Category Chips -->
+<div class="flex gap-sm overflow-x-auto hide-scrollbar mb-lg pb-2 border-b border-outline-variant/30">
+<button class="px-4 py-1.5 bg-[#e5e2e3] text-[#131314] rounded-lg font-label-md text-label-md whitespace-nowrap hover:brightness-90 transition-all font-bold">All</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md border border-outline-variant whitespace-nowrap hover:bg-surface-container-highest transition-all">Gaming</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md border border-outline-variant whitespace-nowrap hover:bg-surface-container-highest transition-all">Music</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md border border-outline-variant whitespace-nowrap hover:bg-surface-container-highest transition-all">Live</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md border border-outline-variant whitespace-nowrap hover:bg-surface-container-highest transition-all">Tech</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md border border-outline-variant whitespace-nowrap hover:bg-surface-container-highest transition-all">Podcasts</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface rounded-lg font-label-md text-label-md border border-outline-variant whitespace-nowrap hover:bg-surface-container-highest transition-all">Design</button>
+</div>
+<!-- Video Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Video Card 1 -->
+<div class="group cursor-pointer flex flex-col gap-sm">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container border border-transparent group-hover:border-b-2 group-hover:border-b-[#8B5CF6] group-hover:scale-[1.02] transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A vibrant 16:9 thumbnail for a video showing a high-end futuristic cityscape at night, rendered in a sleek 3D style with intense deep charcoal blacks and bright electric violet neon lights, giving a premium modern tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcf3Ox1UWO1RdzOGM8IHpNL_yarOZ13XGkE2OlSpqoc4r2NSpWgKTr9IBNZtmB0DiDUtA36dQq4dAfBfKuXbFtuBqcBsZZrPs3AV0blJgiwEPG5eCLBwSMfwAfnOhp6ebjkDDsYPzr5bJfihzgBgFj_iLxp18o690ITs5QaTcADDr7BR3r4a8ZENh8gGsesvvltLvlsShPwSN1R7O8E8nNAAKCj6YEBGzlQQOYyNbTafxhj-2GYXM"/>
+<div class="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 rounded font-label-md text-[10px] text-white">14:23</div>
+</div>
+<div class="flex gap-3 items-start pr-4">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 mt-1" data-alt="A small circular avatar of a tech reviewer in a dark studio setting with soft purple backlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqR4a2eIjg6j-tADUL-Hice1_BOFq_QExebg9HGynIHbPr64qrKflSRIqEtyO2CU37rbaLq-6xPsYPiScZURpcDP6dYhwmoHBcoqs6AIq5bj3SibdGdMOuiWV7KVV-qEAyC71Ia_JC3o0k95WCTkmtX5eGCEvbCKZbRm_j9qBzdnGQ2crbCKFOmFrqXt5AI24ofRBihN4YhFjWGsHrds4ysyRqQn2_XXO5lXa_ZdUfshYHc8aK8Ak"/>
+<div class="flex flex-col">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface line-clamp-2 leading-tight group-hover:text-primary transition-colors">The Future of UI Design in 2025: Trends to Watch</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">DesignMaster</p>
+<p class="font-label-md text-label-md text-on-surface-variant/80">1.2M views • 2 hours ago</p>
+</div>
+</div>
+</div>
+<!-- Video Card 2 -->
+<div class="group cursor-pointer flex flex-col gap-sm">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container border border-transparent group-hover:border-b-2 group-hover:border-b-[#8B5CF6] group-hover:scale-[1.02] transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A cinematic 16:9 thumbnail showing a competitive esports arena with massive glowing screens, intense purple and charcoal lighting, and a roaring crowd in a sleek, highly polished modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPdCe39Rnfgj16GTsFgyWdMKJpvvxbdo9uWGArlpBnAOGRNZMArVhbcKZOa9Z5aELKtEOBgt6rFEQnfj7DCRXGoF50bCAOFokf3LwQ4UHYKrkEwlCMeixlP_BwT-qJvhfAGUMdvn6cAvEdDV6yOuxN5e0FdwBIuYCxJ_5RldwG6-sx0Qy23Bsexd8MxlwGxig5yPtSZhyWEwGkyrgtxxQyBNv32tmBTjz3ykbiYrwgehfp1CRUZtg"/>
+<div class="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 rounded font-label-md text-[10px] text-white">Live</div>
+<div class="absolute top-2 left-2 bg-[#8B5CF6] px-1.5 py-0.5 rounded font-label-md text-[10px] text-white flex items-center gap-1"><span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>LIVE</div>
+</div>
+<div class="flex gap-3 items-start pr-4">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 mt-1" data-alt="A small circular avatar showing a stylized gaming logo with sharp geometric shapes in charcoal and neon violet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdctwtsLgd_oDapBmFhLc5Ov9OtolKGucwlIUifRLI9SQau3mWSOn1seN3tOF-lBZ-iPgSVnJlP3oIpoCsmsuvPqZGxaqHl_EswL69YdHSSKIbSXFeUGWAtrnX5v66OzYPGG3x1VFshoaJTHfPTShPhweQAFPqsokUhXhJyWsYsM8cHa60O6THajTazooXZ6n4xB15Rh5ixKRhRnDlkrEjTXDtpKy4OXv9PU3_bNyNthyvxr8q1mg"/>
+<div class="flex flex-col">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface line-clamp-2 leading-tight group-hover:text-primary transition-colors">Pro League Grand Finals - Global Championship</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">EsportsCentral</p>
+<p class="font-label-md text-label-md text-on-surface-variant/80">45K watching</p>
+</div>
+</div>
+</div>
+<!-- Video Card 3 -->
+<div class="group cursor-pointer flex flex-col gap-sm">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container border border-transparent group-hover:border-b-2 group-hover:border-b-[#8B5CF6] group-hover:scale-[1.02] transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A beautifully lit 16:9 thumbnail of a music studio desk featuring a high-end synthesizer and glowing monitors, bathed in deep moody shadows and subtle violet accent lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUMvCh-ciUezKioRBp0KNovlgv5ydbGvnXjOsb5LDwXU7QIt_cLJa_ua96K8wSoRtohV1_i0qQxp4ZM5XDPNIJ3Tv-h35eXptqXdVt4Rv407jcbZICz8bbYio5G66aI3dmXZoCPx2f25rC-ATgQbRqxhcntH_xuaS4PUp_4ET9JuSpbkbhr-7hTA2ZZnbkA3scJeTyS5luTjxv2WFtv4QLNCTCkZ1uufwSWfAL36OjvupsTJ9tB8A"/>
+<div class="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 rounded font-label-md text-[10px] text-white">45:10</div>
+</div>
+<div class="flex gap-3 items-start pr-4">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 mt-1" data-alt="A small circular avatar of a musician wearing headphones in a dark, atmospheric studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAacnHg6r4xgrXmKep9Ohrd-LjaXE2IZuom2CFfD_I45CPi7NxQFC45cYrxoGEPqpPP2xLKHe7yBjHa0XRIww4WTXxKCqC5RE_-0LWNCPDlkTg_6fbmwCm0bXOLnEiXVPmuMbFeija_Ov8Ek_UtjMDSBZvq51RBSsu6QVwK3i2aZo_WJifJSVDIYJixoX_FNQJzwJ11mmw4LToAzrDzjNDL4MJYPEJDD3OQzthwQdM4zQzOlctW7TY"/>
+<div class="flex flex-col">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface line-clamp-2 leading-tight group-hover:text-primary transition-colors">Synthwave Mix 2024 - Focus &amp; Code</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">BeatsByNight</p>
+<p class="font-label-md text-label-md text-on-surface-variant/80">890K views • 5 days ago</p>
+</div>
+</div>
+</div>
+<!-- Video Card 4 -->
+<div class="group cursor-pointer flex flex-col gap-sm">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container border border-transparent group-hover:border-b-2 group-hover:border-b-[#8B5CF6] group-hover:scale-[1.02] transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A visually striking 16:9 thumbnail depicting a sleek, modern smartphone hovering over a dark slate surface, with glowing geometric lines radiating outward in electric violet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Qk0Aa657CViODxs7lwxhj-vwz8jJcBELrdSgW_9hEIxPepldIWYrHlxgcvNbEWfe1H1qGxQga7wGbM1Yy10fzjazXAQ6juF3YhwxM7DDL3mH5mA1MuQYMCdl0kPam-X-mqt-z6SKO1-ABI9bD5mQ0tfQI27746tyWpcORajG-IqZrxVk-ub0OxRECXQZawT40cqDC3gpik28dwb9vip1gLc4oipo97bTbKx9DOFLE26gNbE5JyQ"/>
+<div class="absolute bottom-2 right-2 bg-black/80 px-1.5 py-0.5 rounded font-label-md text-[10px] text-white">08:45</div>
+</div>
+<div class="flex gap-3 items-start pr-4">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 mt-1" data-alt="A small circular avatar of a tech gadget logo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIcPhmiOtsaDD1VxYIcX5oqgnxU7aopqBrKy9vCOrj_pUVL6PIq5qmkNKWUN05UUpQkQ-rM1NLkyAd_Y0XbtP-QqeJUSD-YXpSmHl7EZxq-MGxjUk1ytnXQXJMRCK_knSQQ2QL-IiLRJwUee9bsjUA7LzrWR5oAmF5V02Nnx8vwY9Ekk5TFtJBo6GTqOEo8PaMiUueSOVmZS1syLdZY5N3N20FxYR-fKskLE9WJB2mA8dm2MrgWt8"/>
+<div class="flex flex-col">
+<h3 class="font-body-lg text-body-lg font-bold text-on-surface line-clamp-2 leading-tight group-hover:text-primary transition-colors">The Phone That Changes Everything</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">TechVision</p>
+<p class="font-label-md text-label-md text-on-surface-variant/80">2.1M views • 1 week ago</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-surface border-t border-outline-variant flex justify-around items-center z-50 px-2">
+<a class="flex flex-col items-center justify-center w-full h-full text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">subscriptions</span>
+<span class="font-label-md text-[10px] mt-1">Subs</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant relative" href="#">
+<div class="absolute -top-4 w-12 h-12 bg-surface rounded-full border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+</div>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-[10px] mt-1">History</span>
+</a>
+<a class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-[10px] mt-1">Library</span>
+</a>
+</nav>
+</body></html>
