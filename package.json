@@ -1,0 +1,8 @@
+{
+  "name": "streamcraft",
+  "private": true,
+  "description": "Prefer Render Root Directory = backend. This start script is a fallback if root is used.",
+  "scripts": {
+    "start": "npm start --prefix backend"
+  }
+}

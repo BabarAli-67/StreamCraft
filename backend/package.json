@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "StreamCraft backend API — video streaming platform",
   "type": "module",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "nodemon --config nodemon.json -r dotenv/config --experimental-json-modules src/index.js",
-    "start": "node -r dotenv/config --experimental-json-modules src/index.js",
+    "start": "node src/index.js",
     "seed": "node -r dotenv/config --experimental-json-modules src/scripts/seed.js"
   },
   "keywords": [

@@ -2,16 +2,15 @@ import dotenv from "dotenv"
 import connectDB from "./db/index.js";
 import {app} from './app.js'
 
-dotenv.config({
-    path: './.env'
-})
+// Local: loads backend/.env. On Render, dashboard env vars are already in process.env.
+dotenv.config()
 
 // Hosts (Render, Railway, etc.) inject PORT — must use process.env.PORT
 const PORT = Number(process.env.PORT) || 8000
 
 connectDB()
 .then(() => {
-    const server = app.listen(PORT, () => {
+    const server = app.listen(PORT, "0.0.0.0", () => {
         console.log(`Server on port ${PORT}`)
     })
 
@@ -27,5 +26,6 @@ connectDB()
     })
 })
 .catch((err) => {
-    console.log("MongoDB connection failed:", err);
+    console.error("MongoDB connection failed:", err);
+    process.exit(1)
 })
