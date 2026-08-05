@@ -1,8 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { VideoGrid } from '../features/videos/VideoGrid'
+import { EmptyState } from '../components/ui/EmptyState'
 import { CATEGORY_CHIPS } from '../utils/constants'
 import { videoApi } from '../services/videoApi'
+import { getErrorMessage } from '../utils/format'
 
 export const HomePage = () => {
   const [searchParams] = useSearchParams()
@@ -10,6 +12,7 @@ export const HomePage = () => {
   const [category, setCategory] = useState('All')
   const [videos, setVideos] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
 
   const effectiveQuery = useMemo(() => {
     if (query) return query
@@ -20,6 +23,7 @@ export const HomePage = () => {
     let cancelled = false
     const load = async () => {
       setLoading(true)
+      setError('')
       try {
         const { data } = await videoApi.getAll({
           page: 1,
@@ -29,8 +33,11 @@ export const HomePage = () => {
           sortType: 'desc',
         })
         if (!cancelled) setVideos(data.data?.docs || [])
-      } catch {
-        if (!cancelled) setVideos([])
+      } catch (err) {
+        if (!cancelled) {
+          setVideos([])
+          setError(getErrorMessage(err, 'Could not load videos. Check API connection.'))
+        }
       } finally {
         if (!cancelled) setLoading(false)
       }
@@ -63,11 +70,15 @@ export const HomePage = () => {
         })}
       </div>
 
-      <VideoGrid
-        videos={videos}
-        loading={loading}
-        emptyTitle={effectiveQuery ? `No results for “${effectiveQuery}”` : 'No videos yet'}
-      />
+      {error ? (
+        <EmptyState icon="cloud_off" title="Videos unavailable" description={error} />
+      ) : (
+        <VideoGrid
+          videos={videos}
+          loading={loading}
+          emptyTitle={effectiveQuery ? `No results for “${effectiveQuery}”` : 'No videos yet'}
+        />
+      )}
     </div>
   )
 }
